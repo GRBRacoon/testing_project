@@ -1,14 +1,15 @@
-import org.junit.Test;
+
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
 public class SubtractorTest {
 
-    private ISubtractor subtractor;
+    static ISubtractor subtractor;
 
     @BeforeAll
-    public void setUp(){
+    public static void setUp(){
         IAdder adder = Mockito.mock((IAdder.class));
         IFlipper flipper=Mockito.mock((IFlipper.class));
 
