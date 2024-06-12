@@ -11,19 +11,6 @@ public class Main {
             System.out.println("i = " + i);
         }
     }
-    public interface  IAdder{
-        public  int add(int a, int b);
-    }
 
-    public  interface  IFlipper{
-        public  int flip(int a);
-    }
-    public  interface  IMultiplier{
-        public int multiply(int a, int b);
-    }
-
-    public  interface  IDivider{
-        public int divide(int a, int b) throws  ArithmeticException;
-    }
 
 }
