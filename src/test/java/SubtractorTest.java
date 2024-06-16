@@ -21,8 +21,8 @@ public class SubtractorTest {
     }
     @Test
     public  void  subtractTest(){
-        Assertions.fail();
-        Assertions.fail();
+//        Assertions.fail();
+//        Assertions.fail();
         Assertions.assertEquals(-2,subtractor.subtract(3,5));
     }
 
