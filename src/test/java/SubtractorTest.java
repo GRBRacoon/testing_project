@@ -1,32 +1,34 @@
 
 import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
 public class SubtractorTest {
-
-    static ISubtractor subtractor;
-
-    @BeforeAll
-    public static void setUp(){
+    private  IMultiplier multiplier;
+    @BeforeEach
+    public  void setUp(){
         IAdder adder = Mockito.mock((IAdder.class));
         IFlipper flipper=Mockito.mock((IFlipper.class));
 
-        Mockito.when(flipper.flip(5)).thenReturn(-5);
-        Mockito.when(adder.add(3,-5)).thenReturn(-2);
+        Mockito.when((flipper.flip((-2)))).thenReturn(2);
+        Mockito.when((flipper.flip(3))).thenReturn((-3));
+        Mockito.when(adder.add(0,3)).thenReturn(3);
+        Mockito.when(adder.add(3,3)).thenReturn(6);
+        Mockito.when(adder.add(0,-3)).thenReturn(-3);
+        Mockito.when(adder.add(-3,-3)).thenReturn(-6);
 
-        subtractor =new Subtractor(adder, flipper);
-
+        multiplier = new Multiplier(adder, flipper);
     }
     @Test
-    public  void  subtractTest(){
-//        Assertions.fail();
-//        Assertions.fail();
-        Assertions.assertEquals(-2,subtractor.subtract(3,5));
+    public  void  multiplyTest1(){
+        Assertions.assertEquals(6,multiplier.multiply(3,2));
     }
 
-
+    @Test
+    public  void  multiplyTest2(){
+        Assertions.assertEquals(-6,multiplier.multiply(3,-2));
+    }
 
 
 }
